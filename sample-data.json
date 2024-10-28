@@ -1,0 +1,200 @@
+{
+  "samples": [
+    {
+      "commit_message": {
+        "title": "Fix typo in README.md",
+        "description": "Corrected a spelling error in the project description."
+      },
+      "diff": "--- a/README.md\n+++ b/README.md\n@@ -1,4 +1,4 @@\n # Project Title\n\n-This is the project decription.\n+This is the project description."
+    },
+    {
+      "commit_message": {
+        "title": "Add user authentication feature",
+        "description": "Implemented basic user authentication to enhance security."
+      },
+      "diff": "--- a/app.py\n+++ b/app.py\n@@ -10,6 +10,15 @@\n def main():\n     # Existing code\n\n+def authenticate_user(username, password):\n+    # Authentication logic here\n+    return True  # Placeholder\n+\n+if __name__ == \"__main__\":\n+    username = input(\"Enter username: \")\n+    password = input(\"Enter password: \")\n+    if authenticate_user(username, password):\n+        main()\n+    else:\n+        print(\"Authentication failed.\")"
+    },
+    {
+      "commit_message": {
+        "title": "Update dependencies to latest versions",
+        "description": "Upgraded requests library to address security vulnerabilities."
+      },
+      "diff": "--- a/requirements.txt\n+++ b/requirements.txt\n@@ -1,3 +1,3 @@\n Flask==1.1.2\n-requests==2.24.0\n+requests==2.26.0\n pandas==1.1.3"
+    },
+    {
+      "commit_message": {
+        "title": "Refactor code for better readability",
+        "description": "Improved the calculation function for clarity."
+      },
+      "diff": "--- a/utils.py\n+++ b/utils.py\n@@ -5,7 +5,7 @@\n def calculate(a, b):\n-    result = a*b + (a-b)\n+    result = (a * b) + (a - b)\n     return result"
+    },
+    {
+      "commit_message": {
+        "title": "Add error handling for file operations",
+        "description": "Implemented exception handling to manage missing files gracefully."
+      },
+      "diff": "--- a/file_handler.py\n+++ b/file_handler.py\n@@ -2,7 +2,10 @@\n def read_file(file_path):\n-    with open(file_path, 'r') as file:\n+    try:\n+        with open(file_path, 'r') as file:\n         data = file.read()\n         return data\n+    except FileNotFoundError:\n+        print(\"File not found.\")\n+        return None"
+    },
+    {
+      "commit_message": {
+        "title": "Remove deprecated function",
+        "description": "Eliminated old_multiply function as it is no longer in use."
+      },
+      "diff": "--- a/math_utils.py\n+++ b/math_utils.py\n@@ -10,12 +10,6 @@\n     return a + b\n\n-def old_multiply(a, b):\n-    # Deprecated function\n-    return a * b\n-\n def divide(a, b):\n     return a / b"
+    },
+    {
+      "commit_message": {
+        "title": "Add unit tests for authentication",
+        "description": "Created tests to verify authentication logic."
+      },
+      "diff": "--- /dev/null\n+++ b/tests/test_auth.py\n@@ -0,0 +1,15 @@\n+import unittest\n+from app import authenticate_user\n+\n+class TestAuthentication(unittest.TestCase):\n+    def test_valid_credentials(self):\n+        self.assertTrue(authenticate_user('user', 'pass'))\n+\n+    def test_invalid_credentials(self):\n+        self.assertFalse(authenticate_user('user', 'wrong_pass'))\n+\n+if __name__ == '__main__':\n+    unittest.main()"
+    },
+    {
+      "commit_message": {
+        "title": "Improve performance of data processing",
+        "description": "Replaced slow_function with fast_function for efficiency."
+      },
+      "diff": "--- a/data_processor.py\n+++ b/data_processor.py\n@@ -20,7 +20,7 @@\n     processed_data = []\n     for item in data:\n-        processed_data.append(slow_function(item))\n+        processed_data.append(fast_function(item))\n     return processed_data"
+    },
+    {
+      "commit_message": {
+        "title": "Update README with installation instructions",
+        "description": "Added steps for setting up the project locally."
+      },
+      "diff": "--- a/README.md\n+++ b/README.md\n@@ -5,6 +5,12 @@\n ## Features\n\n+## Installation\n+\n+```bash\n+git clone https://github.com/username/repo.git\n+cd repo\n+```\n\n ## Usage"
+    },
+    {
+      "commit_message": {
+        "title": "Fix bug in calculation logic",
+        "description": "Corrected the multiplier in compute_total function."
+      },
+      "diff": "--- a/calculator.py\n+++ b/calculator.py\n@@ -8,7 +8,7 @@\n def compute_total(values):\n     total = 0\n     for v in values:\n-        total += v * 0.1\n+        total += v * 1.1\n     return total"
+    },
+    {
+      "commit_message": {
+        "title": "Add logging to track application flow",
+        "description": "Introduced logging to monitor the application's execution."
+      },
+      "diff": "--- a/app.py\n+++ b/app.py\n@@ -1,5 +1,6 @@\n import sys\n+import logging\n\n def main():\n+    logging.basicConfig(level=logging.INFO)\n     # Existing code\n+    logging.info(\"Application started.\")"
+    },
+    {
+      "commit_message": {
+        "title": "Remove unused import statements",
+        "description": "Cleaned up unused imports to improve code quality."
+      },
+      "diff": "--- a/script.py\n+++ b/script.py\n@@ -1,6 +1,4 @@\n-import os\n-import sys\n from datetime import datetime\n-import random\n\n def current_time():\n     return datetime.now()"
+    },
+    {
+      "commit_message": {
+        "title": "Update CSS styles for better UI",
+        "description": "Modified background color for improved aesthetics."
+      },
+      "diff": "--- a/styles.css\n+++ b/styles.css\n@@ -5,7 +5,7 @@\n body {\n-    background-color: white;\n+    background-color: #f5f5f5;\n     font-family: Arial, sans-serif;\n }"
+    },
+    {
+      "commit_message": {
+        "title": "Add support for multiple languages",
+        "description": "Configured application to support English, Spanish, and French."
+      },
+      "diff": "--- a/config.py\n+++ b/config.py\n@@ -10,6 +10,7 @@\n DEBUG = True\n LOG_FILE = 'app.log'\n+SUPPORTED_LANGUAGES = ['en', 'es', 'fr']"
+    },
+    {
+      "commit_message": {
+        "title": "Fix crash when input is empty",
+        "description": "Added check to handle empty user input."
+      },
+      "diff": "--- a/input_processor.py\n+++ b/input_processor.py\n@@ -5,7 +5,9 @@\n def process_input(user_input):\n-    return user_input.strip().lower()\n+    if user_input:\n+        return user_input.strip().lower()\n+    return ''"
+    },
+    {
+      "commit_message": {
+        "title": "Add comments to explain complex logic",
+        "description": "Included detailed comments in complex_calculation function."
+      },
+      "diff": "--- a/algorithm.py\n+++ b/algorithm.py\n@@ -15,6 +15,9 @@\n def complex_calculation(a, b):\n+    # Begin complex calculation\n+    # Step 1: Multiply a and b\n     result = a * b\n+    # Step 2: Add a to the result\n     result += a\n     return result"
+    },
+    {
+      "commit_message": {
+        "title": "Optimize database queries",
+        "description": "Modified queries to retrieve only necessary fields."
+      },
+      "diff": "--- a/database.py\n+++ b/database.py\n@@ -25,7 +25,7 @@\n def fetch_users():\n-    query = \"SELECT * FROM users\"\n+    query = \"SELECT id, name, email FROM users\"\n     return execute_query(query)"
+    },
+    {
+      "commit_message": {
+        "title": "Add documentation for API endpoints",
+        "description": "Documented the /users endpoint with method and description."
+      },
+      "diff": "--- a/api.py\n+++ b/api.py\n@@ -1,5 +1,10 @@\n from flask import Flask\n app = Flask(__name__)\n\n+\"\"\"\n+Endpoint: /users\n+Method: GET\n+Description: Retrieves a list of users\n+\"\"\"\n @app.route('/users')\n def get_users():\n     # Existing code"
+    },
+    {
+      "commit_message": {
+        "title": "Fix memory leak in data handler",
+        "description": "Resolved memory leak by properly releasing resources."
+      },
+      "diff": "--- a/data_handler.py\n+++ b/data_handler.py\n@@ -15,7 +15,9 @@\n def handle_data(data):\n     processed = []\n     for item in data:\n-        temp = process(item)\n+        processed_item = process(item)\n+        processed.append(processed_item)\n+    del data\n     return processed"
+    },
+    {
+      "commit_message": {
+        "title": "Update version to 1.2.0",
+        "description": "Bumped version number for new release."
+      },
+      "diff": "--- a/setup.py\n+++ b/setup.py\n@@ -5,7 +5,7 @@\n setup(\n     name='MyProject',\n-    version='1.1.0',\n+    version='1.2.0',\n     packages=find_packages(),\n )"
+    },
+    {
+      "commit_message": {
+        "title": "Add pagination to user list",
+        "description": "Implemented pagination to improve user list loading times."
+      },
+      "diff": "--- a/views.py\n+++ b/views.py\n@@ -10,6 +10,9 @@\n def user_list(request):\n     users = User.objects.all()\n+    paginator = Paginator(users, 25)  # Show 25 users per page\n+    page_number = request.GET.get('page')\n+    page_obj = paginator.get_page(page_number)\n     return render(request, 'users.html', {'users': users})"
+    },
+    {
+      "commit_message": {
+        "title": "Fix typo in variable name",
+        "description": "Corrected 'prcie' to 'price' in calculate_total function."
+      },
+      "diff": "--- a/main.py\n+++ b/main.py\n@@ -20,7 +20,7 @@\n def calculate_total(items):\n     total = 0\n     for item in items:\n-        total += item.prcie\n+        total += item.price\n     return total"
+    },
+    {
+      "commit_message": {
+        "title": "Add dark mode support",
+        "description": "Introduced CSS changes to support dark mode."
+      },
+      "diff": "--- a/styles.css\n+++ b/styles.css\n@@ -50,6 +50,12 @@\n }\n\n+@media (prefers-color-scheme: dark) {\n+    body {\n+        background-color: #121212;\n+        color: #e0e0e0;\n+    }\n+}\n"
+    },
+    {
+      "commit_message": {
+        "title": "Remove console logs from production code",
+        "description": "Deleted unnecessary console.log statements."
+      },
+      "diff": "--- a/app.js\n+++ b/app.js\n@@ -30,8 +30,6 @@\n function processData(data) {\n     // Existing code\n-    console.log('Processing data:', data);\n }\n"
+    },
+    {
+      "commit_message": {
+        "title": "Implement search functionality",
+        "description": "Added search_items function to enable item searching."
+      },
+      "diff": "--- a/search.py\n+++ b/search.py\n@@ -0,0 +1,15 @@\n+def search_items(query, items):\n+    results = []\n+    for item in items:\n+        if query.lower() in item.lower():\n+            results.append(item)\n+    return results"
+    },
+    {
+      "commit_message": {
+        "title": "Add email notification feature",
+        "description": "Implemented functionality to send emails upon certain triggers."
+      },
+      "diff": "--- a/notifications.py\n+++ b/notifications.py\n@@ -0,0 +1,20 @@\n+import smtplib\n+from email.mime.text import MIMEText\n+\n+def send_email(to_address, subject, body):\n+    msg = MIMEText(body)\n+    msg['Subject'] = subject\n+    msg['From'] = 'noreply@example.com'\n+    msg['To'] = to_address\n+\n+    with smtplib.SMTP('smtp.example.com') as server:\n+        server.login('user', 'pass')\n+        server.send_message(msg)\n+"
+    },
+    {
+      "commit_message": {
+        "title": "Improve error messages",
+        "description": "Enhanced error messages to be more user-friendly."
+      },
+      "diff": "--- a/error_handler.py\n+++ b/error_handler.py\n@@ -10,7 +10,7 @@\n def handle_error(error_code):\n-    print('An error occurred:', error_code)\n+    print(f'Error {error_code}: Please contact support.')\n"
+    },
+    {
+      "commit_message": {
+        "title": "Add support for JSON input",
+        "description": "Modified input processor to handle JSON formatted data."
+      },
+      "diff": "--- a/input_processor.py\n+++ b/input_processor.py\n@@ -2,6 +2,7 @@\n import json\n \n+def process_json_input(json_input):\n     data = json.loads(json_input)\n     # Process data\n     return data"
+    }
+  ]
+}
