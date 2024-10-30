@@ -3,6 +3,10 @@ import argilla as rg
 
 client = rg.Argilla(api_url="http://localhost:6900", api_key="argilla.apikey")
 
+# create a workspace
+workspace = rg.Workspace(name="argilla", client=client)
+workspace.create()
+
 settings = rg.Settings(
     guidelines="Write a commit message given a git diff.",
     fields=[
